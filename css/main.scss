@@ -4,6 +4,12 @@ $colors:(
   accent: #FFF6BB
 
 );
+$padding:15px;
+
+@function color($color-name) {
+  @return map-get($colors, $color-name)
+}
+
 
 body, html {
   height: 100%
@@ -13,12 +19,18 @@ body{
   font-family:arial;
   margin:0;
   //  background-color:map-get($colors, primary); //to refer to one entry in the variable $colors I use map-get($nameVariable,nameEntry)
-  #bg{
+  #bg{ //nesting
     clip-path: polygon(100% 0, 100% 75%, 37% 100%, 0 100%, 0 0);
-    background-color:map-get($colors, primary); //to refer to one entry in the variable $colors I use map-get($nameVariable,nameEntry)
+    //background-color:map-get($colors, primary); //to refer to one entry in the variable $colors I use map-get($nameVariable,nameEntry)
+    background-color:color(primary); //Here, I refer to the @function color that will return "map-get($colors, primary)" which is the same way we have written previously
     height:100%;
     width:100%;
     position:absolute;
     z-index: 1;
+  }
+  header a{
+    color:#fff;
+    text-decoration:none;
+    padding: $padding;
   }
 }
