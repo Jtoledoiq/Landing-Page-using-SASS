@@ -13,6 +13,9 @@ $borders: 15px;
   @return map-get($colors, $color-name)
 }
 
+$desktop: 840px;
+
+
 
 body, html {
   height: 100%
@@ -36,7 +39,7 @@ body{
     text-decoration:none;
     padding: $padding;
     display:block;
-    text-decoration: uppercase;
+    text-transform: uppercase;
   }
 }
 
