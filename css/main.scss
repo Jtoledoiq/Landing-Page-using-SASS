@@ -1,10 +1,12 @@
 //I can define a variable and give ir several entries that I will select later on
 $colors:(
   primary: #005DFF,
-  accent: #FFF6BB
+  accent: #FFF6BB,
+  primary-light: lighten(#005DFF, 40%)
 
 );
-$padding:15px;
+$padding: 15px;
+$borders: 15px;
 
 @function color($color-name) {
   @return map-get($colors, $color-name)
@@ -32,5 +34,44 @@ body{
     color:#fff;
     text-decoration:none;
     padding: $padding;
+    display:block;
+    text-decoration: uppercase;
+  }
+}
+
+main {
+
+  section#card {
+    background:#fff;
+    padding: 20px;
+    margin: 1em auto;
+    border-radius:  $borders;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 80%;
+
+    ul {
+      list-style-type: none;
+      margin:0;
+      padding:0;
+
+      li{
+        margin-bottom: 10px;
+
+        span {
+          position: absolute;
+          width:30px;
+          height:30px;
+          background-color: color(primary-light);
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+        strong{
+          display:inline-block;
+          margin-left: max(40px);
+          margin-top: 10px;
+
+        }
+      }
+    }
   }
 }
